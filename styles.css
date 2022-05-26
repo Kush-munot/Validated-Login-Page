@@ -262,6 +262,11 @@ body{
     color: #fff;
 }
 
-#error{
+#error , #otps, #login{
     color: #FF5D5D !important;
+}
+
+.btn a{
+    text-decoration: none;
+    color: #fff;
 }

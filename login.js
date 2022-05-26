@@ -1,27 +1,9 @@
-const name = document.getElementById('fname');
-const phNum = document.getElementById('phno');
-const ConfirmPassword = document.getElementById('cPassword');
 const Password = document.getElementById('password');
 const userName = document.getElementById('usrName');
-const email = document.getElementById('email');
 
-const form = document.getElementById('form');
-const errorElement = document.getElementById('error');
-const r = Math.random();
+const form = document.getElementById('loginForm');
+const loginElement = document.getElementById('login');
 
-function SendEmail(){
-    var params = {
-        to_name : document.getElementById('fname').value,
-        otpCode : Math.floor(100000 +  r * 900000),
-        email: document.getElementById('email').value
-
-    }
-    emailjs.send("service_pysea4o","template_wc7fi94",params).then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-        console.log('FAILED...', error);
-    });
-}; 
 
 form.addEventListener('submit' , (e) => {
     let messages = [];
@@ -66,22 +48,12 @@ form.addEventListener('submit' , (e) => {
     if(special === 0){
         messages.push('The Password must contain atleast one Special Character.');
     }
-    
-    if(ConfirmPassword.value != Password.value){
-        messages.push('The Confirmed Password does not match. Please Try Again.');
-    }
-
-    /* PHONE NUMBER VALIDATION */
-    if(phNum.value.length < 10 || phNum.value.length > 10){
-        messages.push('The phone number should be of 10 digits.');
-    }
 
     if(messages.length > 0){
         e.preventDefault()
-        errorElement.innerText = messages.join(', ')
+        loginElement.innerText = messages.join(', ')
     }   
 });
 
-/* export { r }; */
 
 

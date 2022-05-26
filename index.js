@@ -56,15 +56,8 @@ form.addEventListener('submit' , (e) => {
     }
 
     /* PHONE NUMBER VALIDATION */
-    if(phNum.value.length < 10 && phNum.value.length > 10){
+    if(phNum.value.length < 10 || phNum.value.length > 10){
         messages.push('The phone number should be of 10 digits.');
-    }
-
-    /* EMAIL VALIDATIONS */
-    if(email.value.text.match("@")){
-        console.log("Correct email");
-    }else{
-        messages.push('Please Enter a valid Email Address.');
     }
 
     if(messages.length > 0){
